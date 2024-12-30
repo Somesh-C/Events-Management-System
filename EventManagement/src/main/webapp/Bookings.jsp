@@ -18,7 +18,7 @@
 			display: flex;
 			align-items: center;
 			justify-content: center;
-			background-color: rgb(92, 172, 230 );
+			background-color: rgb(92, 172, 230);
 			border-top-left-radius: 20px;
 			border-top-right-radius: 20px;
 			width: 100%;
