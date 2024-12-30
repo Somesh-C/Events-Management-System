@@ -1,4 +1,3 @@
-
 <%@page import="com.event.module.*" %>
 <%@page import="com.event.DAO.*" %>
 <%@page import="java.util.*"%>
