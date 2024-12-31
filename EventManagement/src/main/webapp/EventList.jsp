@@ -89,7 +89,11 @@
   					<div class="card-body">
     					<h5 class="card-title"><%=es.getEventCategory() %></h5>
     					<p class="card-text"><%=es.getEventDetaile() %></p>
+    					<%if(session.getAttribute("uname")!=null){ %>
     					<a href="EventDetails.jsp?EventCategory=<%=es.getEventCategory()%>" class="btn btn-primary">Book now</a>
+    					<%}else { %>
+    					<a href="Login.jsp?EventCategory=<%=es.getEventCategory()%>" class="btn btn-primary">Book now</a>
+    					<%}%>
   					</div>
 			</div>
         <!-- Card name -->  

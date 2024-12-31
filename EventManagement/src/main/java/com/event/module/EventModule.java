@@ -579,20 +579,33 @@ public class EventModule {
 		
 		
 		try {
-			System.out.println(name+email+rating+message);
-			PreparedStatement ps=con.prepareStatement("INSERT INTO FEEDBACKS VALUES(0,?,?,?,?,?,now());");
-			//System.out.println(bid);
-			ps.setString(1, bid);
-			ps.setString(2, name);
-			ps.setString(3, email);
-			ps.setString(4, rating);
-			ps.setString(5, message);
 			
-			int res=ps.executeUpdate();
+			PreparedStatement ps1=con.prepareStatement("SELECT * FROM FEEDBACKS WHERE BID=?;");
+			ps1.setString(1, bid);
+			ResultSet rs= ps1.executeQuery();
 			
-			if(res>0) {
-				status="success";
+			if(rs.next()) {
+				
+				status="exists";
+				
 			}
+			
+			else {
+				PreparedStatement ps=con.prepareStatement("INSERT INTO FEEDBACKS VALUES(0,?,?,?,?,?,now());");
+				ps.setString(1, bid);
+				ps.setString(2, name);
+				ps.setString(3, email);
+				ps.setString(4, rating);
+				ps.setString(5, message);
+				
+				int res=ps.executeUpdate();
+				
+				if(res>0) {
+					status="success";
+				}
+				
+			}
+			
 
 			
 		} catch (SQLException e) {

@@ -338,6 +338,11 @@ public class EventServlet extends HttpServlet{
           		RequestDispatcher rd=req.getRequestDispatcher("Feedback.jsp");
           		rd.forward(req, resp);
         	}
+        	else if(status.equals("exists")) {
+       			req.setAttribute("status", "Thank you for your feedback! It has already been submitted.");
+          		RequestDispatcher rd=req.getRequestDispatcher("Feedback.jsp");
+          		rd.forward(req, resp);
+        	}
 
         }
          
