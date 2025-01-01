@@ -35,12 +35,12 @@
                         
                         email: {
                             required: "Please enter the email.",
-                            email: "Please enter valid email id"
+                            email: "Please enter valid email."
                         },
                         
                         password: {
                             required: "Please enter the password.",
-                            minlength: "Please enter the password greater than or equal to  6.",
+                            minlength: "The password must be at least 6 digit long.",
                         }
                         
                     }
@@ -91,35 +91,37 @@
     	}
     	.rightside{
     		width: 50%;
-    		background-color: rgba(123, 126, 219,0.2);
+    		background-color: rgba(216, 225, 232,0.5);
     		padding-left: 10px;
 
     	}
     	.formcontent{
     		display: flex;
     		flex-direction: column;
+    		padding-top: 10px;
+    		
+    		
+    		
     	}
     	.rightside input{
-    		width: 80%;
-    		height: 25px;
-    		border-radius: 10px;
+    		width: 90%;
+    		height: 35px;
+    		border-radius: 20px;
     		font-family: Helvetica, Arial, sans-serif;
+    		color: black;
+    		padding-left: 10px;
+    		font-size: 14px;
+    		border: solid black 1px;
     		
     		
     	}
-    	.rightside label{
-    		
-    		font-family: Helvetica, Arial, sans-serif;
-            font-weight: 600;
-    		
-
-    	}
+    	
     	.rightside h1{
-    	padding-left: 0px;
+    		padding-left: 0px;
     		text-align: center;
     		font-family: Helvetica, Arial, sans-serif;
-            font-weight: 800;
-            color: rgb(102, 139, 232);
+            font-weight: 700;
+            color:black;
 
 
     	}
@@ -131,9 +133,13 @@
     	 justify-content: space-between;
     	}
     	.buttons button{
-    		height: 30px;
-    		width: 110px;
-    		border-radius: 10px;
+    		height: 38px;
+    		width: 100%;
+    		border-radius: 20px;
+    		background-color: black;
+    		color: white;
+    		font-family: Helvetica, Arial, sans-serif;
+
     	}
     	.leftside h1{
     		   font-family: Helvetica, Arial, sans-serif;
@@ -143,17 +149,18 @@
 
     	}
     	.leftside h3{
-font-family: cursive;    		   font-weight: 800;
+				font-family: cursive;    		   
+				font-weight: 800;
     		   color: white;
     		   text-align: center;
     	}
     	.leftside button{
     		font-family: Helvetica, Arial, sans-serif;
-    		   font-weight: 800;
-    		   text-align: center;
-    		   background-color: rgba(250, 245, 245, 0.3);
-    		   color: white;
-    		   height: 40px;
+    		font-weight: 800;
+    	    text-align: center;
+    		background-color: rgba(250, 245, 245, 0.3);
+    		color: white;
+    		height: 40px;
     		width: 110px;
     		border-radius: 10px;
     		border: solid 1px white;
@@ -162,21 +169,54 @@ font-family: cursive;    		   font-weight: 800;
     		color: rgb(102, 139, 232);
     	}
     	.msg{
-    	color:red;
-    	font-family: Helvetica, Arial, sans-serif;
-    		   font-weight: 800;
+    		color:red;
+    		font-family: Helvetica, Arial, sans-serif;
+    		font-weight: 800;
     	}
     	
     	.error{
-    	color:red;
-    	
+    		color:black;
+    		
+    	}
+    	.formcontent p{
+    		font-family: Helvetica, Arial, sans-serif;
+    		font-size: 15px;
+    		    		text-align: center;
+    		
+
+    	}
+    	.formcontent a{
+    		color: black;
+    		text-decoration: none;
+    	}
+    	.buttons{
+    		padding-top: 30px;
+    		padding-bottom: 12px;
+    		
+    	}
+    	.inputs{
+    		padding-top: 10px;
+    	}
+    	.buttons button:active{
+    		color: black;
+    		background-color: white;
+    	}
+    	.leftside button:hover{
+    		border-color: black;
+    		color: black;
+
+    	}
+    	.leftside button:active{
+    		border-color: black;
+    		color: white;
+
     	}
     	
 
     </style>
 </head>
 <body>       
-<%@include file="Header.jsp"%>
+         <%@include file="Header.jsp"%>
 
          <% if(request.getAttribute("status")!=null){ %>
          <h2 class="msg"><%=request.getAttribute("status") %></h2>
@@ -192,19 +232,19 @@ font-family: cursive;    		   font-weight: 800;
 		<div class="rightside">
 			<form action="events" method="POST"  class="formcontent" id="login">
 				<h1>Login</h1>
-				<label>E-mail:</label>
-				<input type="email" name="email" placeholder="Enter your email">
-				<label>Password:</label>
-				<input type="Password" name="password" placeholder="Enter Password">
+				
+					<input type="email" name="email" placeholder="Email">
+					<span class="inputs"></span>
+					<input type="Password" name="password" placeholder="Password">
+			
 				<div class="buttons">
 					<button type="submit" name="Login">Login</button>
-					<a href="#">Forgot Password?</a>
 				</div>
+				<p>Forgot password? <a href="#"><b>Click here</b></a></p>
+
 			
 			</form>	
 		</div>
 	</div>
-
-
 </body>
 </html>
